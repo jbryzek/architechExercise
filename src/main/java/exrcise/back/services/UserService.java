@@ -16,11 +16,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User register(User user) {
+    public String register(User user) {
         if (userExist(user.getUsername())) {
-            System.out.println("User exist");
+            return "This user already exists";
         }
-        return userRepository.save(user);
+        userRepository.save(user);
+        return "User registered";
     }
 
     private boolean userExist(String username) {

@@ -3,6 +3,7 @@ package exrcise.back.api;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import exrcise.back.entity.User;
 import exrcise.back.services.UserService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserApi {
 
     private UserService userService;
@@ -22,8 +23,9 @@ public class UserApi {
         this.userService = userService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")
-    public User register(@RequestBody @Valid User user) {
+    public String register(@RequestBody @Valid User user) {
         return userService.register(user);
     }
 
