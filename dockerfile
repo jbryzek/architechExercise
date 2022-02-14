@@ -1,9 +1,3 @@
-#FROM maven:3.6.3 as springapp
-
-#WORKDIR /usr/src/app
-#COPY . /usr/src/app
-
-#RUN mvn dependency:resolve
 FROM maven:3.6.3 AS maven
 
 WORKDIR /usr/src/app
