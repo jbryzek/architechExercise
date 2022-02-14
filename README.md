@@ -9,8 +9,6 @@ services:
       context: ./back
     ports:
       - 8080:8080
-    expose:
-      - "8080"
     
   client:
     container_name: front
@@ -19,8 +17,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - back
-
+      - api
 ```
 Clone this repo and architechExerciseFront repo. 
 Name architechExercise dir as back and architechExerciseFront as front.
