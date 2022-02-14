@@ -23,7 +23,7 @@ public class UserApi {
         this.userService = userService;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @PostMapping("/register")
     public String register(@RequestBody @Valid User user) {
         return userService.register(user);
